@@ -1,0 +1,143 @@
+ฟังก์ชันการสุ่มใน Java
+1. การสุ่มจำนวนเต็ม
+การสร้างออบเจ็กต์ Random
+
+======================================================================
+import java.util.Random;
+
+Random random = new Random();
+
+======================================================================
+การสุ่มจำนวนเต็มในช่วงทั้งหมด
+
+======================================================================
+int randomInt = random.nextInt();  // อาจได้ค่าบวกหรือลบที่เป็นไปได้ทั้งหมด
+
+======================================================================
+การสุ่มจำนวนเต็มในช่วงที่กำหนด
+
+======================================================================
+int randomIntBounded = random.nextInt(10);  // สุ่มจำนวนเต็มระหว่าง 0 ถึง 9
+
+======================================================================
+2. การสุ่มเลขทศนิยม
+การสุ่มเลขทศนิยมระหว่าง 0.0 ถึง 1.0
+
+======================================================================
+double randomDouble = random.nextDouble();
+
+======================================================================
+การสุ่มเลขทศนิยมในช่วงที่กำหนด
+
+======================================================================
+double randomDoubleBounded = 1.0 + (10.0 - 1.0) * random.nextDouble();  // สุ่มเลขทศนิยมระหว่าง 1.0 ถึง 10.0
+
+======================================================================
+3. การสุ่มบูลีน
+การสุ่มค่าบูลีน
+======================================================================
+boolean randomBoolean = random.nextBoolean();
+
+======================================================================
+4. การสุ่มเลือกจากอาร์เรย์
+การสุ่มเลือกจากอาร์เรย์
+======================================================================
+String[] fruits = {"apple", "banana", "cherry"};
+String randomFruit = fruits[random.nextInt(fruits.length)];
+
+======================================================================
+5. การสุ่มสับอาร์เรย์
+การสุ่มสับลำดับของอาร์เรย์
+======================================================================
+import java.util.Collections;
+import java.util.List;
+import java.util.Arrays;
+
+List<String> fruitList = Arrays.asList(fruits);
+Collections.shuffle(fruitList);
+
+======================================================================
+ตัวอย่างการใช้งาน
+ตัวอย่างการสุ่มจำนวนเต็ม
+
+======================================================================
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        Random random = new Random();
+
+        int randomInt = random.nextInt();
+        System.out.println("Random Integer: " + randomInt);
+
+        int randomIntBounded = random.nextInt(10);
+        System.out.println("Random Integer (0-9): " + randomIntBounded);
+    }
+}
+
+======================================================================
+ตัวอย่างการสุ่มเลขทศนิยม
+
+======================================================================
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        Random random = new Random();
+
+        double randomDouble = random.nextDouble();
+        System.out.println("Random Double (0.0-1.0): " + randomDouble);
+
+        double randomDoubleBounded = 1.0 + (10.0 - 1.0) * random.nextDouble();
+        System.out.println("Random Double (1.0-10.0): " + randomDoubleBounded);
+    }
+}
+
+======================================================================
+ตัวอย่างการสุ่มค่าบูลีน
+
+======================================================================
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        Random random = new Random();
+
+        boolean randomBoolean = random.nextBoolean();
+        System.out.println("Random Boolean: " + randomBoolean);
+    }
+}
+
+======================================================================
+ตัวอย่างการสุ่มเลือกจากอาร์เรย์
+
+======================================================================
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        Random random = new Random();
+
+        String[] fruits = {"apple", "banana", "cherry"};
+        String randomFruit = fruits[random.nextInt(fruits.length)];
+        System.out.println("Random Fruit: " + randomFruit);
+    }
+}
+
+======================================================================
+ตัวอย่างการสุ่มสับอาร์เรย์
+
+======================================================================
+import java.util.Collections;
+import java.util.List;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        String[] fruits = {"apple", "banana", "cherry"};
+        List<String> fruitList = Arrays.asList(fruits);
+        Collections.shuffle(fruitList);
+
+        System.out.println("Shuffled Fruits: " + fruitList);
+    }
+}
