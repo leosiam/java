@@ -1,0 +1,134 @@
+การจัดการวันที่และเวลาใน Java
+1. การสร้างวันที่และเวลา
+สร้างวัตถุ LocalDate สำหรับวันที่
+==============================================
+import java.time.LocalDate;
+
+LocalDate today = LocalDate.now();
+LocalDate specificDate = LocalDate.of(2024, 6, 30);
+==============================================
+สร้างวัตถุ LocalTime สำหรับเวลา
+==============================================
+import java.time.LocalTime;
+
+LocalTime now = LocalTime.now();
+LocalTime specificTime = LocalTime.of(12, 30, 45);
+==============================================
+สร้างวัตถุ LocalDateTime สำหรับวันที่และเวลา
+==============================================
+import java.time.LocalDateTime;
+
+LocalDateTime now = LocalDateTime.now();
+LocalDateTime specificDateTime = LocalDateTime.of(2024, 6, 30, 12, 30, 45);
+==============================================
+2. การจัดรูปแบบวันที่และเวลา
+ใช้ DateTimeFormatter เพื่อจัดรูปแบบวันที่และเวลา
+==============================================
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+LocalDateTime now = LocalDateTime.now();
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+String formattedDateTime = now.format(formatter);
+==============================================
+3. การแปลงสตริงเป็นวันที่และเวลา
+ใช้ DateTimeFormatter เพื่อแปลงสตริงเป็น LocalDateTime
+==============================================
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+String dateTimeString = "2024-06-30 12:30:45";
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+LocalDateTime dateTime = LocalDateTime.parse(dateTimeString, formatter);
+==============================================
+4. การคำนวณวันที่และเวลา
+เพิ่มหรือลดวัน, เดือน, หรือปี
+==============================================
+import java.time.LocalDate;
+
+LocalDate today = LocalDate.now();
+LocalDate nextWeek = today.plusWeeks(1);
+LocalDate previousMonth = today.minusMonths(1);
+==============================================
+คำนวณความแตกต่างระหว่างสองวันที่
+==============================================
+import java.time.LocalDate;
+import java.time.Period;
+
+LocalDate date1 = LocalDate.of(2024, 6, 30);
+LocalDate date2 = LocalDate.of(2025, 6, 30);
+Period period = Period.between(date1, date2);
+int years = period.getYears();
+int months = period.getMonths();
+int days = period.getDays();
+==============================================
+ตัวอย่างการใช้งาน
+ตัวอย่างการสร้างและจัดรูปแบบวันที่และเวลา
+==============================================
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class Main {
+    public static void main(String[] args) {
+        // สร้างวันที่
+        LocalDate today = LocalDate.now();
+        System.out.println("Today: " + today);  // Output: Today: 2024-06-30
+
+        LocalDate specificDate = LocalDate.of(2024, 6, 30);
+        System.out.println("Specific Date: " + specificDate);  // Output: Specific Date: 2024-06-30
+
+        // สร้างเวลา
+        LocalTime now = LocalTime.now();
+        System.out.println("Now: " + now);  // Output: Now: 12:30:45.123
+
+        LocalTime specificTime = LocalTime.of(12, 30, 45);
+        System.out.println("Specific Time: " + specificTime);  // Output: Specific Time: 12:30:45
+
+        // สร้างวันที่และเวลา
+        LocalDateTime nowDateTime = LocalDateTime.now();
+        System.out.println("Now DateTime: " + nowDateTime);  // Output: Now DateTime: 2024-06-30T12:30:45.123
+
+        LocalDateTime specificDateTime = LocalDateTime.of(2024, 6, 30, 12, 30, 45);
+        System.out.println("Specific DateTime: " + specificDateTime);  // Output: Specific DateTime: 2024-06-30T12:30:45
+
+        // จัดรูปแบบวันที่และเวลา
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDateTime = nowDateTime.format(formatter);
+        System.out.println("Formatted DateTime: " + formattedDateTime);  // Output: Formatted DateTime: 2024-06-30 12:30:45
+
+        // แปลงสตริงเป็นวันที่และเวลา
+        String dateTimeString = "2024-06-30 12:30:45";
+        LocalDateTime dateTime = LocalDateTime.parse(dateTimeString, formatter);
+        System.out.println("Parsed DateTime: " + dateTime);  // Output: Parsed DateTime: 2024-06-30T12:30:45
+    }
+}
+==============================================
+ตัวอย่างการคำนวณวันที่และเวลา
+==============================================
+import java.time.LocalDate;
+import java.time.Period;
+
+public class Main {
+    public static void main(String[] args) {
+        LocalDate today = LocalDate.now();
+        System.out.println("Today: " + today);  // Output: Today: 2024-06-30
+
+        // เพิ่มและลดวัน เดือน ปี
+        LocalDate nextWeek = today.plusWeeks(1);
+        System.out.println("Next Week: " + nextWeek);  // Output: Next Week: 2024-07-07
+
+        LocalDate previousMonth = today.minusMonths(1);
+        System.out.println("Previous Month: " + previousMonth);  // Output: Previous Month: 2024-05-30
+
+        // คำนวณความแตกต่างระหว่างสองวันที่
+        LocalDate date1 = LocalDate.of(2024, 6, 30);
+        LocalDate date2 = LocalDate.of(2025, 6, 30);
+        Period period = Period.between(date1, date2);
+        int years = period.getYears();
+        int months = period.getMonths();
+        int days = period.getDays();
+        System.out.println("Difference: " + years + " years, " + months + " months, " + days + " days");  // Output: Difference: 1 years, 0 months, 0 days
+    }
+}
