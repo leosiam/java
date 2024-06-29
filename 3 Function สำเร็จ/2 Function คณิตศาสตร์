@@ -1,0 +1,99 @@
+ฟังก์ชันทางคณิตศาสตร์ใน Java
+1. ฟังก์ชันพื้นฐาน
+Math.abs(x): คืนค่าค่าสัมบูรณ์ของ x
+====================================================
+int absoluteValue = Math.abs(-5);  // Output: 5
+Math.round(x): คืนค่าจำนวนเต็มที่ใกล้เคียงที่สุดกับ x
+
+
+long roundedValue = Math.round(3.14159);  // Output: 3
+Math.pow(x, y): คืนค่าของ x ยกกำลัง y
+
+
+double powerValue = Math.pow(2, 3);  // Output: 8.0
+Math.max(a, b) และ Math.min(a, b): คืนค่ามากที่สุดและน้อยที่สุดระหว่าง a และ b
+
+
+int maxValue = Math.max(1, 2);  // Output: 2
+int minValue = Math.min(1, 2);  // Output: 1
+Math.sqrt(x): คืนค่ารากที่สองของ x
+
+
+double squareRoot = Math.sqrt(16);  // Output: 4.0
+Math.cbrt(x): คืนค่ารากที่สามของ x
+
+
+double cubeRoot = Math.cbrt(27);  // Output: 3.0
+Math.exp(x): คืนค่า e ยกกำลัง x
+
+
+double expValue = Math.exp(1);  // Output: 2.718281828459045
+Math.log(x): คืนค่าลอการิทึมธรรมชาติของ x (ฐาน e)
+
+
+double logValue = Math.log(10);  // Output: 2.302585092994046
+Math.log10(x): คืนค่าลอการิทึมฐาน 10 ของ x
+
+
+double log10Value = Math.log10(100);  // Output: 2.0
+Math.sin(x), Math.cos(x), Math.tan(x): คืนค่าฟังก์ชันไซน์, โคไซน์, และแทนเจนต์ของ x (หน่วยเรเดียน)
+
+
+double sinValue = Math.sin(Math.PI / 2);  // Output: 1.0
+double cosValue = Math.cos(Math.PI);  // Output: -1.0
+double tanValue = Math.tan(Math.PI / 4);  // Output: 1.0
+Math.toDegrees(x) และ Math.toRadians(x): แปลงหน่วยเรเดียนเป็นองศา และองศาเป็นเรเดียน
+
+
+double degrees = Math.toDegrees(Math.PI);  // Output: 180.0
+double radians = Math.toRadians(180);  // Output: 3.141592653589793
+====================================================
+ตัวอย่างการใช้งาน
+ตัวอย่างการคำนวณพื้นฐาน
+====================================================
+public class Main {
+    public static void main(String[] args) {
+        int absoluteValue = Math.abs(-5);
+        System.out.println("Absolute value: " + absoluteValue);  // Output: 5
+
+        long roundedValue = Math.round(3.14159);
+        System.out.println("Rounded value: " + roundedValue);  // Output: 3
+
+        double powerValue = Math.pow(2, 3);
+        System.out.println("2^3: " + powerValue);  // Output: 8.0
+
+        int maxValue = Math.max(1, 2);
+        System.out.println("Max value: " + maxValue);  // Output: 2
+
+        int minValue = Math.min(1, 2);
+        System.out.println("Min value: " + minValue);  // Output: 1
+
+        double squareRoot = Math.sqrt(16);
+        System.out.println("Square root of 16: " + squareRoot);  // Output: 4.0
+    }
+}
+====================================================
+ตัวอย่างการคำนวณขั้นสูง
+====================================================
+
+public class Main {
+    public static void main(String[] args) {
+        double expValue = Math.exp(1);
+        System.out.println("e^1: " + expValue);  // Output: 2.718281828459045
+
+        double logValue = Math.log(10);
+        System.out.println("Logarithm of 10 (base e): " + logValue);  // Output: 2.302585092994046
+
+        double log10Value = Math.log10(100);
+        System.out.println("Logarithm of 100 (base 10): " + log10Value);  // Output: 2.0
+
+        double sinValue = Math.sin(Math.PI / 2);
+        System.out.println("Sin(π/2): " + sinValue);  // Output: 1.0
+
+        double degrees = Math.toDegrees(Math.PI);
+        System.out.println("π radians to degrees: " + degrees);  // Output: 180.0
+
+        double radians = Math.toRadians(180);
+        System.out.println("180 degrees to radians: " + radians);  // Output: 3.141592653589793
+    }
+}
