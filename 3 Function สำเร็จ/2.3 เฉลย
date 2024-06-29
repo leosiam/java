@@ -1,0 +1,71 @@
+แบบฝึกหัด
+แบบฝึกหัดที่ 1: คำนวณค่าสัมบูรณ์
+คำสั่ง: ให้เขียนฟังก์ชันที่รับตัวเลขจากผู้ใช้ และคืนค่าค่าสัมบูรณ์ของตัวเลขนั้น
+
+==============================================================
+public class Main {
+    public static int absoluteValue(int x) {
+        return Math.abs(x);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Absolute value of -10: " + absoluteValue(-10));  // Output: 10
+    }
+}
+==============================================================
+แบบฝึกหัดที่ 2: คำนวณรากที่สอง
+คำสั่ง: ให้เขียนฟังก์ชันที่รับตัวเลขจากผู้ใช้ และคืนค่ารากที่สองของตัวเลขนั้น
+
+==============================================================
+public class Main {
+    public static double squareRoot(double x) {
+        return Math.sqrt(x);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Square root of 25: " + squareRoot(25));  // Output: 5.0
+    }
+}
+==============================================================
+แบบฝึกหัดที่ 3: คำนวณลอการิทึมธรรมชาติ
+คำสั่ง: ให้เขียนฟังก์ชันที่รับตัวเลขจากผู้ใช้ และคืนค่าลอการิทึมธรรมชาติของตัวเลขนั้น
+==============================================================
+
+public class Main {
+    public static double naturalLog(double x) {
+        return Math.log(x);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Natural log of 10: " + naturalLog(10));  // Output: 2.302585092994046
+    }
+}
+==============================================================
+แบบฝึกหัดที่ 4: คำนวณค่าไซน์
+คำสั่ง: ให้เขียนฟังก์ชันที่รับค่ามุมในหน่วยองศาจากผู้ใช้ และคืนค่าไซน์ของมุมนั้น
+==============================================================
+
+public class Main {
+    public static double sineOfAngle(double degrees) {
+        double radians = Math.toRadians(degrees);
+        return Math.sin(radians);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Sine of 90 degrees: " + sineOfAngle(90));  // Output: 1.0
+    }
+}
+==============================================================
+แบบฝึกหัดที่ 5: คำนวณพลังงาน
+คำสั่ง: ให้เขียนฟังก์ชันที่รับตัวเลขสองตัวและคืนค่าผลลัพธ์ของการยกกำลัง
+==============================================================
+
+public class Main {
+    public static double power(double base, double exponent) {
+        return Math.pow(base, exponent);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("2^3: " + power(2, 3));  // Output: 8.0
+    }
+}
