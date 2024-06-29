@@ -1,0 +1,95 @@
+แบบฝึกหัด
+แบบฝึกหัดที่ 1: การสุ่มจำนวนเต็ม
+คำสั่ง: ให้เขียนฟังก์ชันที่สุ่มจำนวนเต็มระหว่าง 1 ถึง 100 และคืนค่าจำนวนนั้น
+
+======================================================================
+import java.util.Random;
+
+public class Main {
+    public static int randomInteger() {
+        Random random = new Random();
+        return random.nextInt(100) + 1;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Random Integer (1-100): " + randomInteger());
+    }
+}
+
+======================================================================
+แบบฝึกหัดที่ 2: การสุ่มเลขทศนิยม
+คำสั่ง: ให้เขียนฟังก์ชันที่สุ่มเลขทศนิยมระหว่าง 0.0 ถึง 1.0 และคืนค่าจำนวนนั้น
+
+======================================================================
+import java.util.Random;
+
+public class Main {
+    public static double randomDouble() {
+        Random random = new Random();
+        return random.nextDouble();
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Random Double (0.0-1.0): " + randomDouble());
+    }
+}
+
+======================================================================
+แบบฝึกหัดที่ 3: การสุ่มเลือกจากอาร์เรย์
+คำสั่ง: ให้เขียนฟังก์ชันที่สุ่มเลือกคำจากอาร์เรย์ของคำ และคืนค่าคำนั้น
+
+======================================================================
+import java.util.Random;
+
+public class Main {
+    public static String randomChoice(String[] words) {
+        Random random = new Random();
+        return words[random.nextInt(words.length)];
+    }
+
+    public static void main(String[] args) {
+        String[] words = {"apple", "banana", "cherry"};
+        System.out.println("Random Choice: " + randomChoice(words));
+    }
+}
+
+======================================================================
+แบบฝึกหัดที่ 4: การสุ่มสับอาร์เรย์
+คำสั่ง: ให้เขียนฟังก์ชันที่สุ่มสับลำดับของอาร์เรย์และคืนค่าอาร์เรย์ที่สับแล้ว
+
+======================================================================
+import java.util.Collections;
+import java.util.List;
+import java.util.Arrays;
+
+public class Main {
+    public static List<String> shuffleArray(String[] array) {
+        List<String> list = Arrays.asList(array);
+        Collections.shuffle(list);
+        return list;
+    }
+
+    public static void main(String[] args) {
+        String[] array = {"apple", "banana", "cherry"};
+        List<String> shuffledArray = shuffleArray(array);
+        System.out.println("Shuffled Array: " + shuffledArray);
+    }
+}
+
+======================================================================
+แบบฝึกหัดที่ 5: การสุ่มค่าบูลีน
+คำสั่ง: ให้เขียนฟังก์ชันที่สุ่มค่าบูลีนและคืนค่านั้น
+
+======================================================================
+import java.util.Random;
+
+public class Main {
+    public static boolean randomBoolean() {
+        Random random = new Random();
+        return random.nextBoolean();
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Random Boolean: " + randomBoolean());
+    }
+}
