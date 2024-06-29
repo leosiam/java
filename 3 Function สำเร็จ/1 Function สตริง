@@ -1,0 +1,140 @@
+ฟังก์ชันการจัดการสตริงใน Java
+1. การสร้างและการรวมสตริง
+การสร้างสตริง
+
+==============================================
+String str1 = "Hello";
+String str2 = new String("World");
+==============================================
+การรวมสตริง (concat)
+==============================================
+String str1 = "Hello";
+String str2 = "World";
+String result = str1 + " " + str2; // ใช้โอเปอเรเตอร์ +
+String result2 = str1.concat(" ").concat(str2); // ใช้เมธอด concat
+==============================================
+2. การแปลงตัวอักษร
+การแปลงเป็นตัวพิมพ์ใหญ่ (toUpperCase)
+==============================================
+String str = "hello";
+String upperStr = str.toUpperCase(); // "HELLO"
+==============================================
+การแปลงเป็นตัวพิมพ์เล็ก (toLowerCase)
+==============================================
+String str = "HELLO";
+String lowerStr = str.toLowerCase(); // "hello"
+==============================================
+3. การค้นหาและแทนที่
+การค้นหาตำแหน่งของคำย่อย (indexOf)
+==============================================
+String str = "hello world";
+int index = str.indexOf("world"); // 6
+==============================================
+การแทนที่คำย่อย (replace)
+==============================================
+String str = "hello world";
+String newStr = str.replace("world", "Java"); // "hello Java"
+==============================================
+4. การตัดและแยกสตริง
+การตัดสตริง (substring)
+==============================================
+
+String str = "hello world";
+String subStr = str.substring(0, 5); // "hello"
+==============================================
+การแยกสตริง (split)
+==============================================
+String str = "apple,banana,cherry";
+String[] fruits = str.split(","); // ["apple", "banana", "cherry"]
+==============================================
+5. การตรวจสอบสตริง
+การตรวจสอบว่ามีคำย่อย (contains)
+==============================================
+
+String str = "hello world";
+boolean contains = str.contains("world"); // true
+==============================================
+การตรวจสอบว่าขึ้นต้นด้วยคำที่กำหนด (startsWith)
+==============================================
+
+String str = "hello world";
+boolean starts = str.startsWith("hello"); // true
+==============================================
+การตรวจสอบว่าลงท้ายด้วยคำที่กำหนด (endsWith)
+==============================================
+
+String str = "hello world";
+boolean ends = str.endsWith("world"); // true
+==============================================
+ตัวอย่างการใช้งาน
+ตัวอย่างการสร้างและรวมสตริง
+==============================================
+
+public class Main {
+    public static void main(String[] args) {
+        String str1 = "Hello";
+        String str2 = "World";
+        String result = str1 + " " + str2;
+        System.out.println(result); // Output: "Hello World"
+    }
+}
+==============================================
+ตัวอย่างการแปลงตัวอักษร
+==============================================
+public class Main {
+    public static void main(String[] args) {
+        String str = "hello";
+        String upperStr = str.toUpperCase();
+        System.out.println(upperStr); // Output: "HELLO"
+    }
+}
+==============================================
+ตัวอย่างการค้นหาและแทนที่
+==============================================
+public class Main {
+    public static void main(String[] args) {
+        String str = "hello world";
+        int index = str.indexOf("world");
+        System.out.println(index); // Output: 6
+
+        String newStr = str.replace("world", "Java");
+        System.out.println(newStr); // Output: "hello Java"
+    }
+}
+==============================================
+ตัวอย่างการตัดและแยกสตริง
+==============================================
+public class Main {
+    public static void main(String[] args) {
+        String str = "hello world";
+        String subStr = str.substring(0, 5);
+        System.out.println(subStr); // Output: "hello"
+
+        String str2 = "apple,banana,cherry";
+        String[] fruits = str2.split(",");
+        for (String fruit : fruits) {
+            System.out.println(fruit);
+        }
+        // Output:
+        // apple
+        // banana
+        // cherry
+    }
+}
+==============================================
+ตัวอย่างการตรวจสอบสตริง
+==============================================
+
+public class Main {
+    public static void main(String[] args) {
+        String str = "hello world";
+        boolean contains = str.contains("world");
+        System.out.println(contains); // Output: true
+
+        boolean starts = str.startsWith("hello");
+        System.out.println(starts); // Output: true
+
+        boolean ends = str.endsWith("world");
+        System.out.println(ends); // Output: true
+    }
+}
