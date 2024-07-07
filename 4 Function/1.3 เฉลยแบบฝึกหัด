@@ -1,0 +1,91 @@
+#ข้อที่ 1: หาผลรวมของตัวเลขใน array
+#โจทย์: เขียนเมธอดที่รับ array ของ integers และคืนค่าผลรวมของตัวเลขทั้งหมดใน array นั้น.
+
+#เฉลย:
+
+public class Exercise {
+    public static int sumArray(int[] numbers) {
+        int sum = 0;
+        for (int num : numbers) {
+            sum += num;
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3, 4, 5};
+        System.out.println("Sum: " + sumArray(numbers));
+    }
+}
+
+#ข้อที่ 2: ตรวจสอบตัวเลขคู่หรือคี่
+#โจทย์: เขียนเมธอดที่รับตัวเลข integer และคืนค่า true ถ้าเป็นตัวเลขคู่, หรือ false ถ้าเป็นตัวเลขคี่.
+
+#เฉลย:
+
+public class Exercise {
+    public static boolean isEven(int number) {
+        return number % 2 == 0;
+    }
+
+    public static void main(String[] args) {
+        int number = 10;
+        System.out.println("Is the number even? " + isEven(number));
+    }
+}
+
+#ข้อที่ 3: แปลงอุณหภูมิจากเซลเซียสเป็นฟาเรนไฮต์
+#โจทย์: เขียนเมธอดที่รับอุณหภูมิเป็นเซลเซียสและคืนค่าเป็นฟาเรนไฮต์.
+
+#เฉลย:
+
+public class Exercise {
+    public static double celsiusToFahrenheit(double celsius) {
+        return (celsius * 9/5) + 32;
+    }
+
+    public static void main(String[] args) {
+        double celsius = 100;
+        System.out.println("Fahrenheit: " + celsiusToFahrenheit(celsius));
+    }
+}
+
+#ข้อที่ 4: หาความยาวของสตริง
+#โจทย์: เขียนเมธอดที่รับสตริงและคืนค่าความยาวของสตริงนั้น.
+
+#เฉลย:
+
+public class Exercise {
+    public static int stringLength(String text) {
+        return text.length();
+    }
+
+    public static void main(String[] args) {
+        String text = "Hello, World!";
+        System.out.println("Length of the string: " + stringLength(text));
+    }
+}
+
+#ข้อที่ 5: นับจำนวนสระในสตริง
+#โจทย์: เขียนเมธอดที่รับสตริงและคืนค่าจำนวนสระที่ปรากฏในสตริงนั้น.
+
+#เฉลย:
+
+public class Exercise {
+    public static int countVowels(String text) {
+        int count = 0;
+        text = text.toLowerCase();
+        for (int i = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        String text = "Hello, World!";
+        System.out.println("Number of vowels: " + countVowels(text));
+    }
+}
