@@ -1,0 +1,14 @@
+ข้อที่ 1: จัดการกับ ArrayIndexOutOfBoundsException
+คำใบ้: ให้คุณลองเข้าถึง index ของ array ที่เกินกว่าขนาดที่ array มีจริง ตัวอย่างเช่น ถ้า array มีขนาด 5 คุณลองเข้าถึง index ที่ 10 แล้วดูว่าจะเกิดอะไรขึ้น ใช้ try-catch block เพื่อจับและแสดงข้อความของ exception.
+
+ข้อที่ 2: จัดการกับ NumberFormatException
+คำใบ้: พยายามแปลงสตริงที่ไม่ได้เป็นตัวเลขเป็น integer โดยใช้ Integer.parseInt() และดูว่าเมื่อข้อผิดพลาดเกิดขึ้นคุณจะจัดการกับมันอย่างไร ใช้ try-catch block เพื่อจับและแสดงข้อความของ exception.
+
+ข้อที่ 3: จัดการกับ FileNotFoundException
+คำใบ้: ลองเปิดไฟล์ที่ไม่มีอยู่จริงใน directory ของคุณ ใช้คลาส File และ Scanner เพื่ออ่านไฟล์ ใช้ try-catch block เพื่อจับและแสดงข้อความของ exception.
+
+ข้อที่ 4: จัดการกับ NullPointerException
+คำใบ้: กำหนดให้ตัวแปรประเภท String เป็น null และพยายามเข้าถึงเมธอด length() ของมัน สิ่งนี้จะทำให้เกิด NullPointerException เมื่อเรียกใช้ ใช้ try-catch block เพื่อจับและแสดงข้อความของ exception.
+
+ข้อที่ 5: จัดการกับ Multiple Exceptions
+คำใบ้: สร้างโค้ดที่มีโอกาสเกิดหลายประเภทของ exceptions ใน block เดียวกัน เช่น เข้าถึง array ด้วย index ผิด และแปลงสตริงที่ไม่ใช่ตัวเลข ใช้หลาย catch blocks เพื่อจับแต่ละประเภทของ exceptions แยกกัน
