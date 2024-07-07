@@ -1,0 +1,97 @@
+ข้อที่ 1: หาผลรวมของตัวเลขใน array
+โจทย์: สร้าง array ของ integers และคำนวณผลรวมของตัวเลขทั้งหมดใน array นั้น.
+
+ข้อที่ 2: หาค่าเฉลี่ยของตัวเลขใน array
+โจทย์: สร้าง array ของ integers และคำนวณค่าเฉลี่ยของตัวเลขทั้งหมดใน array.
+
+ข้อที่ 3: หาตัวเลขที่มากที่สุดและน้อยที่สุดใน array
+โจทย์: สร้าง array ของ integers และค้นหาตัวเลขที่มากที่สุดและน้อยที่สุดใน array นั้น.
+
+ข้อที่ 4: กลับด้านข้อมูลใน array
+โจทย์: สร้าง array ของ integers แล้วเขียนฟังก์ชันที่กลับด้านข้อมูลใน array นั้น (ตัวแรกกลายเป็นตัวสุดท้าย, ตัวสุดท้ายกลายเป็นตัวแรก, และอื่นๆ).
+
+ข้อที่ 5: ตรวจสอบค่าที่ซ้ำกันใน array
+โจทย์: สร้าง array ของ integers และเขียนฟังก์ชันที่ตรวจสอบว่ามีค่าใดใน array ที่ซ้ำกันหรือไม่.
+
+#ข้อที่ 1: หาผลรวมของตัวเลขใน array
+
+public class SumArray {
+    public static void main(String[] args) {
+        int[] numbers = {10, 20, 30, 40, 50};
+        int sum = 0;
+        for (int num : numbers) {
+            sum += num;
+        }
+        System.out.println("Total sum: " + sum);
+    }
+}
+
+#ข้อที่ 2: หาค่าเฉลี่ยของตัวเลขใน array
+
+public class AverageArray {
+    public static void main(String[] args) {
+        int[] numbers = {10, 20, 30, 40, 50};
+        double sum = 0;
+        for (int num : numbers) {
+            sum += num;
+        }
+        double average = sum / numbers.length;
+        System.out.println("Average value: " + average);
+    }
+}
+
+#ข้อที่ 3: หาตัวเลขที่มากที่สุดและน้อยที่สุดใน array
+
+public class MinMaxArray {
+    public static void main(String[] args) {
+        int[] numbers = {10, 20, 30, 5, 50};
+        int min = numbers[0];
+        int max = numbers[0];
+        for (int num : numbers) {
+            if (num > max) {
+                max = num;
+            }
+            if (num < min) {
+                min = num;
+            }
+        }
+        System.out.println("Minimum: " + min);
+        System.out.println("Maximum: " + max);
+    }
+}
+
+#ข้อที่ 4: กลับด้านข้อมูลใน array
+
+public class ReverseArray {
+    public static void main(String[] args) {
+        int[] numbers = {10, 20, 30, 40, 50};
+        int[] reversed = new int[numbers.length];
+        for (int i = 0; i < numbers.length; i++) {
+            reversed[i] = numbers[numbers.length - 1 - i];
+        }
+        System.out.println("Reversed array: ");
+        for (int num : reversed) {
+            System.out.println(num);
+        }
+    }
+}
+
+#ข้อที่ 5: ตรวจสอบค่าที่ซ้ำกันใน array
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class DuplicateCheck {
+    public static void main(String[] args) {
+        int[] numbers = {10, 20, 30, 40, 20};
+        Set<Integer> numSet = new HashSet<>();
+        boolean hasDuplicate = false;
+        for (int num : numbers) {
+            if (!numSet.add(num)) {
+                hasDuplicate = true;
+                break;
+            }
+        }
+        System.out.println("Has duplicates? " + hasDuplicate);
+    }
+}
