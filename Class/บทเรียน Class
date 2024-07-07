@@ -1,13 +1,13 @@
-บทเรียนเรื่องคลาส (Class) ใน Java
-บทที่ 1: ความเข้าใจเบื้องต้นเกี่ยวกับคลาส
-หัวข้อย่อย:
-คลาสคืออะไร
-การสร้างคลาส
-การสร้างวัตถุ (Object) จากคลาส
-คลาสคืออะไร:
-คลาสเป็นแม่แบบ (template) หรือแบบแปลน (blueprint) ที่ใช้ในการสร้างวัตถุ (object) ซึ่งคลาสประกอบด้วยข้อมูล (attributes) และพฤติกรรม (methods)
+#บทเรียนเรื่องคลาส (Class) ใน Java
+#บทที่ 1: ความเข้าใจเบื้องต้นเกี่ยวกับคลาส
+#หัวข้อย่อย:
+#คลาสคืออะไร
+#การสร้างคลาส
+#การสร้างวัตถุ (Object) จากคลาส
+#คลาสคืออะไร:
+#คลาสเป็นแม่แบบ (template) หรือแบบแปลน (blueprint) ที่ใช้ในการสร้างวัตถุ (object) ซึ่งคลาสประกอบด้วยข้อมูล (attributes) และพฤติกรรม (methods)
 
-การสร้างคลาส:
+#การสร้างคลาส:
 
 public class Dog {
     // ข้อมูล (Attributes)
@@ -20,7 +20,7 @@ public class Dog {
     }
 }
 
-การสร้างวัตถุจากคลาส:
+#การสร้างวัตถุจากคลาส:
 
 public class Main {
     public static void main(String[] args) {
@@ -31,15 +31,15 @@ public class Main {
     }
 }
 
-บทที่ 2: Constructor และการใช้งาน
-หัวข้อย่อย:
-Constructor คืออะไร
-การสร้าง Constructor
-การใช้งาน Constructor ในการสร้างวัตถุ
-Constructor คืออะไร:
-Constructor คือเมธอดพิเศษที่ถูกเรียกใช้งานเมื่อมีการสร้างวัตถุใหม่จากคลาส ใช้สำหรับการกำหนดค่าเริ่มต้นให้กับวัตถุ
+#บทที่ 2: Constructor และการใช้งาน
+#หัวข้อย่อย:
+#Constructor คืออะไร
+#การสร้าง Constructor
+#การใช้งาน Constructor ในการสร้างวัตถุ
+#Constructor คืออะไร:
+#Constructor คือเมธอดพิเศษที่ถูกเรียกใช้งานเมื่อมีการสร้างวัตถุใหม่จากคลาส ใช้สำหรับการกำหนดค่าเริ่มต้นให้กับวัตถุ
 
-การสร้าง Constructor:
+#การสร้าง Constructor:
 
 public class Dog {
     String name;
@@ -56,7 +56,7 @@ public class Dog {
     }
 }
 
-การใช้งาน Constructor:
+#การใช้งาน Constructor:
 
 public class Main {
     public static void main(String[] args) {
@@ -65,15 +65,15 @@ public class Main {
     }
 }
 
-บทที่ 3: Encapsulation และการใช้งาน Access Modifiers
-หัวข้อย่อย:
-Encapsulation คืออะไร
-การใช้ Access Modifiers (public, private, protected)
-การใช้ Getter และ Setter
-Encapsulation คืออะไร:
-Encapsulation เป็นการซ่อนรายละเอียดการทำงานภายในของคลาส และให้การเข้าถึงข้อมูลผ่านเมธอดสาธารณะ (public methods)
+#บทที่ 3: Encapsulation และการใช้งาน Access Modifiers
+#หัวข้อย่อย:
+#Encapsulation คืออะไร
+#การใช้ Access Modifiers (public, private, protected)
+#การใช้ Getter และ Setter
+#Encapsulation คืออะไร:
+#Encapsulation เป็นการซ่อนรายละเอียดการทำงานภายในของคลาส และให้การเข้าถึงข้อมูลผ่านเมธอดสาธารณะ (public methods)
 
-การใช้ Access Modifiers:
+#การใช้ Access Modifiers:
 
 public class Dog {
     private String name; // ใช้ private เพื่อซ่อนข้อมูล
@@ -106,7 +106,7 @@ public class Dog {
     }
 }
 
-การใช้งาน Encapsulation:
+#การใช้งาน Encapsulation:
 
 public class Main {
     public static void main(String[] args) {
@@ -117,15 +117,15 @@ public class Main {
     }
 }
 
-บทที่ 4: Inheritance และการสืบทอดคลาส
-หัวข้อย่อย:
-Inheritance คืออะไร
-การสร้างคลาสที่สืบทอดจากคลาสอื่น
-การใช้คำสั่ง super
-Inheritance คืออะไร:
-Inheritance เป็นกระบวนการที่คลาสหนึ่ง (subclass) สามารถสืบทอดคุณสมบัติและพฤติกรรมจากคลาสอื่น (superclass)
+#บทที่ 4: Inheritance และการสืบทอดคลาส
+#หัวข้อย่อย:
+#Inheritance คืออะไร
+#การสร้างคลาสที่สืบทอดจากคลาสอื่น
+#การใช้คำสั่ง super
+#Inheritance คืออะไร:
+#Inheritance เป็นกระบวนการที่คลาสหนึ่ง (subclass) สามารถสืบทอดคุณสมบัติและพฤติกรรมจากคลาสอื่น (superclass)
 
-การสร้างคลาสที่สืบทอดจากคลาสอื่น:
+#การสร้างคลาสที่สืบทอดจากคลาสอื่น:
 
 // คลาส Superclass
 public class Animal {
@@ -145,7 +145,7 @@ public class Dog extends Animal {
     }
 }
 
-การใช้คำสั่ง super:
+#การใช้คำสั่ง super:
 
 public class Animal {
     String name;
@@ -172,7 +172,7 @@ public class Dog extends Animal {
     }
 }
 
-การใช้งาน Inheritance:
+#การใช้งาน Inheritance:
 
 public class Main {
     public static void main(String[] args) {
@@ -182,15 +182,15 @@ public class Main {
     }
 }
 
-บทที่ 5: Polymorphism และการใช้ Overriding
-หัวข้อย่อย:
-Polymorphism คืออะไร
-การใช้ Overriding เมธอด
-การใช้งาน Polymorphism ในโปรแกรม
-Polymorphism คืออะไร:
-Polymorphism เป็นความสามารถของวัตถุที่สามารถแสดงพฤติกรรมที่แตกต่างกันได้ แม้ว่าจะถูกเรียกผ่านทางอ้างอิงประเภทเดียวกัน
+#บทที่ 5: Polymorphism และการใช้ Overriding
+#หัวข้อย่อย:
+#Polymorphism คืออะไร
+#การใช้ Overriding เมธอด
+#การใช้งาน Polymorphism ในโปรแกรม
+#Polymorphism คืออะไร:
+#Polymorphism เป็นความสามารถของวัตถุที่สามารถแสดงพฤติกรรมที่แตกต่างกันได้ แม้ว่าจะถูกเรียกผ่านทางอ้างอิงประเภทเดียวกัน
 
-การใช้ Overriding เมธอด:
+#การใช้ Overriding เมธอด:
 
 public class Animal {
     void makeSound() {
@@ -204,16 +204,15 @@ public class Dog extends Animal {
         System.out.println("Woof!");
     }
 }
-การใช้งาน Polymorphism:
+#การใช้งาน Polymorphism:
 
-java
-คัดลอกโค้ด
-public class Main {
+
+#public class Main {
     public static void main(String[] args) {
         Animal myAnimal = new Dog(); // Polymorphism
         myAnimal.makeSound(); // จะเรียกใช้งานเมธอด makeSound ของ Dog
     }
 }
 
-สรุป
-การใช้คลาสใน Java เป็นพื้นฐานสำคัญในการเขียนโปรแกรมเชิงวัตถุ บทเรียนนี้ครอบคลุมการสร้างคลาสและวัตถุ การใช้ Constructor และ Encapsulation การสืบทอดคลาส (Inheritance) และการใช้งาน Polymorphism ซึ่งจะช่วยให้นักเรียนเข้าใจและสามารถนำไปประยุกต์ใช้ในการเขียนโปรแกรมได้อย่างมีประสิทธิภาพ
+#สรุป
+#การใช้คลาสใน Java เป็นพื้นฐานสำคัญในการเขียนโปรแกรมเชิงวัตถุ บทเรียนนี้ครอบคลุมการสร้างคลาสและวัตถุ การใช้ Constructor และ Encapsulation การสืบทอดคลาส (Inheritance) และการใช้งาน Polymorphism ซึ่งจะช่วยให้นักเรียนเข้าใจและสามารถนำไปประยุกต์ใช้ในการเขียนโปรแกรมได้อย่างมีประสิทธิภาพ
