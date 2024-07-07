@@ -1,0 +1,103 @@
+#การจัดการกับข้อผิดพลาดหรือ "error handling" ใน Java มักจะทำผ่านกลไกของ "exceptions". Exception ใน Java เป็นวิธีการจัดการกับสถานการณ์ที่ผิดปกติที่อาจเกิดขึ้นในโปรแกรมของคุณและทำให้โปรแกรมไม่สามารถทำงานต่อไปได้ตามปกติ ใน Java, exceptions ถูกจัดการโดยการใช้คำสั่ง try, catch, และ finally.
+
+#ประเภทของ Exceptions
+#Checked Exceptions: คือ exceptions ที่ต้องจัดการในโค้ดของคุณ (ต้อง catch หรือ throw ต่อไป). เช่น IOException, SQLException เป็นต้น.
+#Unchecked Exceptions: คือ exceptions ที่เกิดจากข้อผิดพลาดในโปรแกรม เช่น การแบ่งด้วยศูนย์ (division by zero), การเข้าถึง index ของ array ที่ไม่มีอยู่ ฯลฯ เช่น ArithmeticException, NullPointerException เป็นต้น.
+#การใช้งาน Try-Catch
+#การใช้ try และ catch เป็นวิธีพื้นฐานในการจัดการกับ exceptions. โค้ดที่อาจเกิด error จะถูกใส่ไว้ในบล็อก try, และการจัดการกับ error จะทำในบล็อก catch.
+
+
+public class ErrorHandlingExample {
+    public static void main(String[] args) {
+        try {
+            int[] numbers = {1, 2, 3};
+            System.out.println(numbers[5]); // This will throw an ArrayIndexOutOfBoundsException
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+    }
+}
+
+#การใช้งาน Finally
+#บล็อก finally ถูกใช้เพื่อใส่โค้ดที่จำเป็นต้องทำงานไม่ว่าจะมีการ throw exception หรือไม่ก็ตาม, เช่น การปิดไฟล์, หรือปิดการเชื่อมต่อกับฐานข้อมูล.
+
+
+public class FinallyExample {
+    public static void main(String[] args) {
+        try {
+            int[] numbers = {1, 2, 3};
+            System.out.println(numbers[1]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        } finally {
+            System.out.println("The 'try catch' is finished.");
+        }
+    }
+}
+
+#การ Throw ของ Exceptions
+#คุณสามารถ throw exceptions ของคุณเองได้โดยใช้คำสั่ง throw เมื่อต้องการบังคับให้เกิดข้อผิดพลาดเฉพาะสถานการณ์
+
+
+public class ThrowExample {
+    public static void checkAge(int age) {
+        if (age < 18) {
+            throw new ArithmeticException("Access denied - You must be at least 18 years old.");
+        } else {
+            System.out.println("Access granted - You are old enough!");
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            checkAge(15);
+        } catch (ArithmeticException e) {
+            System.out.println("Exception occurred: " + e.getMessage());
+        }
+    }
+}
+
+
+#Checked Exceptions
+#Checked Exceptions ต้องถูกจัดการ (handle) หรือประกาศว่าสามารถโยน (throw) ออกมาจากเมธอดด้วยการใช้คีย์เวิร์ด throws.
+#เป็นประเภทของ exceptions ที่ตรวจสอบโดย Java Compiler ณ เวลาคอมไพล์ (compile time) เพื่อให้แน่ใจว่ามีการจัดการข้อผิดพลาดเหล่านี้อย่างเหมาะสมในโปรแกรม.
+#มักใช้สำหรับสถานการณ์ที่โปรแกรมสามารถคาดการณ์และจัดการกับข้อผิดพลาดได้ ตัวอย่างเช่น ข้อผิดพลาดที่เกี่ยวข้องกับการอ่าน/เขียนไฟล์หรือติดต่อกับฐานข้อมูล.
+#ตัวอย่างของ Checked Exceptions:
+
+
+import java.io.*;
+
+public class CheckedExceptionExample {
+    public static void readFile() throws IOException {
+        FileInputStream file = new FileInputStream("nonexistent.txt");
+        int k;
+
+        while(( k = file.read() ) != -1) {
+            System.out.print((char)k);
+        }
+        file.close();
+    }
+
+    public static void main(String[] args) {
+        try {
+            readFile();
+        } catch (IOException e) {
+            System.out.println("File not found.");
+        }
+    }
+}
+
+#Unchecked Exceptions
+#Unchecked Exceptions รวมถึง RuntimeException และ subclasses ของมัน.
+#ไม่จำเป็นต้องถูกจัดการหรือประกาศในโค้ดของคุณ.
+#เป็น exceptions ที่โยนออกมาจากข้อผิดพลาดที่เกิดจากโปรแกรมเองเช่น การอ้างอิงถึง null, การเข้าถึง array ที่ index ผิด ฯลฯ
+#มักเกิดจากบั๊กในโปรแกรมและควรถูกแก้ไขระหว่างการพัฒนา.
+#ตัวอย่างของ Unchecked Exceptions:
+
+
+public class UncheckedExceptionExample {
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3};
+        System.out.println(numbers[5]); // ArrayIndexOutOfBoundsException
+    }
+}
