@@ -1,0 +1,94 @@
+#ข้อที่ 1: จัดการกับ ArrayIndexOutOfBoundsException
+#โจทย์: เขียนโปรแกรมที่พยายามเข้าถึง index ที่ไม่มีอยู่ใน array ของ integers และจัดการกับ exception ที่อาจเกิดขึ้น.
+
+#เฉลย:
+
+
+public class ArrayExceptionHandling {
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3, 4, 5};
+        try {
+            System.out.println(numbers[10]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+#ข้อที่ 2: จัดการกับ NumberFormatException
+#โจทย์: เขียนโปรแกรมที่พยายามแปลงสตริง "abc123" เป็น integer และจัดการกับ exception ที่เกิดขึ้น.
+
+#เฉลย:
+
+
+public class NumberFormatExceptionHandling {
+    public static void main(String[] args) {
+        try {
+            int number = Integer.parseInt("abc123");
+            System.out.println("Number is: " + number);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+#ข้อที่ 3: จัดการกับ FileNotFoundException
+#โจทย์: เขียนโปรแกรมที่พยายามเปิดไฟล์ที่ไม่มีอยู่และจัดการกับ exception.
+
+#เฉลย:
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class FileExceptionHandling {
+    public static void main(String[] args) {
+        try {
+            Scanner scanner = new Scanner(new File("nonexistentfile.txt"));
+            while (scanner.hasNext()) {
+                System.out.println(scanner.nextLine());
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+#ข้อที่ 4: จัดการกับ NullPointerException
+#โจทย์: เขียนโปรแกรมที่พยายามเข้าถึงเมธอดของอ็อบเจกต์ที่เป็น null และจัดการกับ exception.
+
+#เฉลย:
+
+
+public class NullPointerHandling {
+    public static void main(String[] args) {
+        String text = null;
+        try {
+            System.out.println(text.length());
+        } catch (NullPointerException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+#ข้อที่ 5: จัดการกับ Multiple Exceptions
+#โจทย์: เขียนโปรแกรมที่มีโอกาสเกิดหลายประเภทของ exception และจัดการกับพวกมันในบล็อก catch หลายบล็อก.
+
+#เฉลย:
+
+
+public class MultipleExceptionHandling {
+    public static void main(String[] args) {
+        try {
+            int[] numbers = new int[5];
+            numbers[5] = 10; // This line throws ArrayIndexOutOfBoundsException
+            int number = Integer.parseInt("xyz"); // Not executed
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Array index error: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("Number format error: " + e.getMessage());
+        }
+    }
+}
