@@ -1,0 +1,158 @@
+#ขั้นตอนการตั้งค่า
+#ดาวน์โหลดไลบรารี JDBC สำหรับ SQLite:
+
+#คุณสามารถดาวน์โหลดไฟล์ JAR ของ SQLite JDBC จาก เว็บไซต์นี้
+#ตั้งค่าโปรเจ็กต์ใน IDE:
+
+#เพิ่มไฟล์ JAR ที่ดาวน์โหลดลงใน classpath ของโปรเจ็กต์
+#เพิ่มไลบรารี JavaFX:
+
+#ตรวจสอบให้แน่ใจว่า JavaFX ถูกรวมในโปรเจ็กต์ของคุณ (สำหรับ JDK 11 ขึ้นไป จะต้องดาวน์โหลดแยกต่างหากจาก openjfx.io)
+#โครงสร้างโปรเจ็กต์
+css
+Copy code
+src
+└── sample
+    ├── Main.java
+    ├── Controller.java
+    └── sample.fxml
+#ตัวอย่างโค้ด
+#Main.java
+
+
+package sample;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        primaryStage.setTitle("JavaFX SQLite Example");
+        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+Controller.java
+
+
+package sample;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Controller {
+    @FXML
+    private TextField nameField;
+
+    @FXML
+    private TextField emailField;
+
+    @FXML
+    private Button addButton;
+
+    @FXML
+    private ListView<String> listView;
+
+    private Connection connect() {
+        String url = "jdbc:sqlite:sample.db";
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(url);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return conn;
+    }
+
+    @FXML
+    private void initialize() {
+        loadDatabase();
+    }
+
+    @FXML
+    private void handleAddButton() {
+        String name = nameField.getText();
+        String email = emailField.getText();
+
+        String sql = "INSERT INTO users(name, email) VALUES('" + name + "', '" + email + "')";
+
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement()) {
+            stmt.execute(sql);
+            loadDatabase();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void loadDatabase() {
+        String sql = "SELECT * FROM users";
+
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            listView.getItems().clear();
+            while (rs.next()) {
+                listView.getItems().add("ID: " + rs.getInt("id") + ", Name: " + rs.getString("name") + ", Email: " + rs.getString("email"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+sample.fxml
+
+xml
+Copy code
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml" fx:controller="sample.Controller">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+    <TextField fx:id="nameField" GridPane.rowIndex="0" GridPane.columnIndex="0" promptText="Name"/>
+    <TextField fx:id="emailField" GridPane.rowIndex="0" GridPane.columnIndex="1" promptText="Email"/>
+    <Button fx:id="addButton" GridPane.rowIndex="0" GridPane.columnIndex="2" text="Add" onAction="#handleAddButton"/>
+    <ListView fx:id="listView" GridPane.rowIndex="1" GridPane.columnSpan="3"/>
+</GridPane>
+#คำอธิบายโค้ด
+#Main.java:
+
+#กำหนดการตั้งค่าเริ่มต้นของ JavaFX และโหลดไฟล์ FXML
+#Controller.java:
+
+#มีการเชื่อมต่อกับฐานข้อมูล SQLite และจัดการการเพิ่มข้อมูลและการแสดงข้อมูลใน ListView
+#connect() เป็นเมธอดที่เชื่อมต่อกับฐานข้อมูล
+#initialize() โหลดข้อมูลจากฐานข้อมูลเมื่อแอปพลิเคชันเริ่มต้น
+#handleAddButton() เพิ่มข้อมูลใหม่ลงในฐานข้อมูล
+#loadDatabase() โหลดข้อมูลจากฐานข้อมูลและแสดงใน ListView
+#sample.fxml:
+
+#ออกแบบอินเตอร์เฟซของแอปพลิเคชันด้วย GridPane ที่มี TextField สำหรับป้อนชื่อและอีเมล ปุ่มสำหรับเพิ่มข้อมูล และ ListView สำหรับแสดงข้อมูล
+#การรันโปรเจ็กต์
+#ตรวจสอบให้แน่ใจว่าคุณได้เพิ่มไฟล์ JAR ของ SQLite JDBC และ JavaFX ไลบรารีลงใน classpath ของโปรเจ็กต์
+#รันไฟล์ Main.java เพื่อเริ่มต้นแอปพลิเคชัน
